@@ -32,7 +32,7 @@ export class WsMessage {
       ...DefaultMessageConfig,
       ...defaults,
     };
-    this.DISCORD_GATEWAY=`${this.config.WsBaseUrl}/?v=9&encoding=json&compress=gzip-stream`
+    this.DISCORD_GATEWAY = `${this.config.WsBaseUrl}/?v=9&encoding=json&compress=gzip-stream`
     this.ws = new WebSocket(this.DISCORD_GATEWAY, {});
     this.ws.on("open", this.open.bind(this));
   }
@@ -248,11 +248,11 @@ export class WsMessage {
         "Content-Type": "application/json",
         Authorization: this.config.SalaiToken,
       };
-      const response = await fetch(`${this.config.DiscordBaseUrl}/api/v9/interactions`,{
-          method: "POST",
-          body: JSON.stringify(payload),
-          headers: headers,
-        },
+      const response = await fetch(`${this.config.DiscordBaseUrl}/api/v9/interactions`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: headers,
+      },
       );
       callback && callback(response.status);
       //discord api rate limit
@@ -422,7 +422,7 @@ export class WsMessage {
           resolve(message);
           return;
         }
-        message && loading && loading(message.uri, message.progress || "");
+        message && loading && loading(message.uri, message.progress || "", message.content || "");
       });
     });
   }

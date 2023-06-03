@@ -25,8 +25,8 @@ async function main() {
     2,
     <string>msg.id,
     <string>msg.hash,
-    (uri: string, progress: string) => {
-      console.log("loading", uri, "progress", progress);
+    (uri: string, progress: string, content) => {
+      console.log("loading", uri, "progress", progress, 'content', content);
     }
   );
   console.log({ msg2 });

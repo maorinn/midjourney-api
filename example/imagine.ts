@@ -18,8 +18,8 @@ async function main() {
 
   const msg = await client.Imagine(
     "A little white elephant",
-    (uri: string, progress: string) => {
-      console.log("loading", uri, "progress", progress);
+    (uri: string, progress: string, content) => {
+      console.log("loading", uri, "progress", progress, 'content', content);
     }
   );
   console.log({ msg });
